@@ -1,0 +1,21 @@
+public char getNumChar(String s) {
+    char[] c = s.toCharArray();
+    String alphabet = "abcdefghijklmnopqrstuvwxyz";
+    int[] countArray = new int[26];
+    for (char x : c) {
+        for (int i = 0; i < alphabet.length(); i++) {
+            if (alphabet.charAt(i) == x) {
+                countArray[i]++;
+            }
+        }
+    }
+
+    java.util.HashMap<Integer, Character> countList = new java.util.HashMap<Integer, Character>();
+
+    for (int i = 0; i < 26; i++) {
+        countList.put(countArray[i], alphabet.charAt(i));
+    }
+    java.util.Arrays.sort(countArray);
+    int max = countArray[25];
+    return countList.get(max);
+}
